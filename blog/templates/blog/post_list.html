@@ -1,22 +1,15 @@
-<html>
-    <head>
-        <title>Django bird's bbblaat</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django bird's</a></h1>
-        </div>
+{% extends 'blog/base.html' %}
 
-        <div>
-            {% for post in posts %}
-            <div>
-                <p> publicatie: {{post.publicatie_datum}}</p>
-                <h1><a href="'">{{post.titel}}</a></h1>
+{% block content %}
+  {% for post in posts %}
+        <div class="post">
+             <div class="date">
+                 {{post.publicatie_datum}}
+             </div>
+                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titel }}</a></h1>
                 <p>{{ post.tekst|linebreaksbr}}</p>
 
                 </div>
-            {% endfor %}
-    </body>
-</html>
+    {% endfor %}
 
- 
+{% endblock %}
