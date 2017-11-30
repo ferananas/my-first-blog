@@ -2,8 +2,8 @@ from django.db import models
 from django.utils import timezone
 
 
-class Posst (models.Model):
-    schrijver=models.ForeignKey('auth.User')
+class Post (models.Model):
+    schrijver =models.ForeignKey('auth.User')
     titel = models.CharField(max_length=200)
     tekst = models.TextField()
     creatie_datum = models.DateTimeField(default=timezone.now)
